@@ -36,7 +36,7 @@
 
 ##### Game main page
 
-![wireframe](C:\Users\FAHAD\Downloads\game-wireframe)
+![wireframe](https://ibb.co/VjgvmHK)
 
 ---
 
