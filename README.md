@@ -36,7 +36,7 @@
 
 ##### Game main page
 
-![wireframe](https://ibb.co/VjgvmHK)
+![wireframe](https://i.imghippo.com/files/eMvBn1714561072.png)
 
 ---
 
