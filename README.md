@@ -36,7 +36,7 @@
 
 ##### Game main page
 
-![wireframe](https://www.canva.com/design/DAGD-jRc1l4/QkOk_UOZR417APw2dtDX5Q/view?mode=prototype)
+![wireframe](C:\Users\FAHAD\Downloads\game-wireframe)
 
 ---
 
