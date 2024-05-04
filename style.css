@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-gap: 5px;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #f03f3c;
+  font-size: 20px;
+  grid-column: span 2;
+}
+
+#nav-section {
+  display: flex;
+}
+div {
+  margin: 10px;
+}
