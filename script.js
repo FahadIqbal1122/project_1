@@ -18,11 +18,13 @@ const buttonDiv = document.getElementById("button-div")
 const timeValue = document.getElementById("time-value")
 const scoreValue = document.getElementById("score-value")
 const restartButton = document.getElementById("restart-button")
+const result = document.getElementById("button-div")
+const message = document.getElementById("message")
 
 let score = 0
 let wordTimer, timer
 let wordInterval = 5000
-let remainingTime = 60
+let remainingTime = 30
 
 // functions
 
@@ -78,6 +80,7 @@ const endGame = () => {
   clearInterval(wordTimer)
   clearInterval(timer)
   wordDiv.innerText = ""
+  showPopup()
 }
 
 // function to decrease time
@@ -88,11 +91,18 @@ const decreaseTime = () => {
     endGame()
   }
 }
+// show results
+function showPopup() {
+  result.style.display = "block"
+  message.innerText = `GAME OVER\nYour score is ${score}`
+}
 
 // Event listeners
 
 restartButton.addEventListener("click", () => {
   startGame()
+  result.style.display = "none"
+  remainingTime = 30
 })
 
 userInput.addEventListener("keydown", function (event) {

@@ -1,7 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   margin: 0;
   height: 100vh;
   display: grid;
@@ -24,4 +22,39 @@ nav {
 }
 div {
   margin: 10px;
+}
+
+#input-div {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+}
+#user-input {
+  width: 200px;
+  padding: 5px;
+}
+
+#game-div {
+  position: absolute;
+  left: 40%;
+  top: 5%;
+  border: 1px solid black;
+  width: 200px;
+  font-size: large;
+  font-weight: bolder;
+}
+.button-div {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  top: 40%;
+  left: 40%;
+}
+#restart-button {
+  position: relative;
+  left: 40%;
 }
