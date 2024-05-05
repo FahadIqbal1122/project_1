@@ -10,7 +10,8 @@ body {
   grid-template-rows: 50px 1fr 50px;
   grid-gap: 5px;
 }
-nav {
+nav,
+footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,7 +21,8 @@ nav {
   grid-column: span 2;
 }
 
-#nav-section {
+#nav-section,
+footer {
   display: flex;
 }
 div {
@@ -71,7 +73,8 @@ div {
 
 /* animation  */
 .word.falling {
-  animation: fall 3s ease-in-out;
+  animation: fall 7s;
+  padding: 10px;
 }
 
 @keyframes fall {
@@ -80,7 +83,7 @@ div {
     opacity: 1;
   }
   to {
-    top: 100vh;
+    top: 95vh;
     opacity: 0;
   }
 }

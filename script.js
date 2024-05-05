@@ -11,6 +11,7 @@ const words = [
   "iceberg",
   "jackfruit",
 ]
+const horizontal = ["20%", "40%", "60%", "80%"]
 
 const wordDiv = document.getElementById("word-div")
 const userInput = document.getElementById("user-input")
@@ -24,7 +25,7 @@ const message = document.getElementById("message")
 let score = 0
 let wordTimer, timer
 let wordInterval = 5000
-let remainingTime = 30
+let remainingTime = 60
 let wordFound = false
 
 // functions
@@ -34,13 +35,16 @@ const createWord = () => {
   const word = document.createElement("div")
   word.classList.add("word", "falling")
   word.innerText = words[Math.floor(Math.random() * words.length)]
-  wordDiv.appendChild(word)
+  word.style.fontSize = "20px"
+  word.style.fontWeight = "bolder"
 
   // Animation logic
+  let leftPosition = horizontal[Math.floor(Math.random() * horizontal.length)]
+  word.style.left = leftPosition
   word.style.position = "absolute"
   word.style.top = "0"
-  word.style.animation = "fall 5s ease-in-out"
 
+  wordDiv.appendChild(word)
   word.addEventListener("animationend", () => {
     word.remove()
     endGame()
@@ -112,7 +116,7 @@ function showPopup() {
 restartButton.addEventListener("click", () => {
   startGame()
   result.style.display = "none"
-  remainingTime = 30
+  remainingTime = 60
 })
 
 userInput.addEventListener("keydown", function (event) {
