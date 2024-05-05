@@ -25,15 +25,26 @@ let score = 0
 let wordTimer, timer
 let wordInterval = 5000
 let remainingTime = 30
+let wordFound = false
 
 // functions
 
 // function to create new word
 const createWord = () => {
   const word = document.createElement("div")
-  word.classList.add("word")
+  word.classList.add("word", "falling")
   word.innerText = words[Math.floor(Math.random() * words.length)]
   wordDiv.appendChild(word)
+
+  // Animation logic
+  word.style.position = "absolute"
+  word.style.top = "0"
+  word.style.animation = "fall 5s ease-in-out"
+
+  word.addEventListener("animationend", () => {
+    word.remove()
+    endGame()
+  })
 }
 
 // function to start the game
@@ -50,12 +61,19 @@ const startGame = () => {
   timer = setInterval(decreaseTime, 1000)
 }
 
+// function to end the game
+const endGame = () => {
+  clearInterval(wordTimer)
+  clearInterval(timer)
+  wordDiv.innerText = ""
+  showPopup()
+}
+
 // function to check the word matches user input
 const checkWord = () => {
   const enteredWord = userInput.value.toLowerCase()
   const wordElements = document.querySelectorAll(".word")
 
-  let wordFound = false
   let wordElement
 
   for (let i = 0; i < wordElements.length; i++) {
@@ -75,14 +93,6 @@ const checkWord = () => {
   }
 }
 
-// function to end the game
-const endGame = () => {
-  clearInterval(wordTimer)
-  clearInterval(timer)
-  wordDiv.innerText = ""
-  showPopup()
-}
-
 // function to decrease time
 const decreaseTime = () => {
   remainingTime--
@@ -94,7 +104,7 @@ const decreaseTime = () => {
 // show results
 function showPopup() {
   result.style.display = "block"
-  message.innerText = `GAME OVER\nYour score is ${score}`
+  message.innerText = `GAME OVER\nYour score is \n${score}`
 }
 
 // Event listeners

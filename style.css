@@ -33,7 +33,7 @@ div {
   left: 40%;
 }
 #user-input {
-  width: 200px;
+  width: 250px;
   padding: 5px;
 }
 
@@ -42,7 +42,7 @@ div {
   left: 40%;
   top: 5%;
   border: 1px solid black;
-  width: 200px;
+  width: 250px;
   font-size: large;
   font-weight: bolder;
 }
@@ -51,13 +51,36 @@ div {
   position: absolute;
   background-color: white;
   border: 1px solid black;
-  width: 200px;
+  width: 250px;
   height: 200px;
-  padding: 10px;
+  padding: 15px;
   top: 40%;
   left: 40%;
+  text-align: center;
 }
 #restart-button {
   position: relative;
-  left: 40%;
+  display: block;
+  left: 35%;
+  padding: 10px;
+  font-size: large;
+  font-weight: bolder;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/* animation  */
+.word.falling {
+  animation: fall 3s ease-in-out;
+}
+
+@keyframes fall {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: 100vh;
+    opacity: 0;
+  }
 }
