@@ -24,8 +24,8 @@ const message = document.getElementById("message")
 
 let score = 0
 let wordTimer, timer
-let wordInterval = 5000
-let remainingTime = 60
+let wordInterval = 4000
+let time = 0
 let wordFound = false
 
 // functions
@@ -53,7 +53,7 @@ const createWord = () => {
 
 // function to start the game
 const startGame = () => {
-  timeValue.innerText = remainingTime
+  timeValue.innerText = time
   scoreValue.innerText = score
   userInput.value = ""
   wordDiv.innerHTML = ""
@@ -62,7 +62,7 @@ const startGame = () => {
     createWord()
   }, wordInterval)
 
-  timer = setInterval(decreaseTime, 1000)
+  timer = setInterval(increaseTime, 1000)
 }
 
 // function to end the game
@@ -70,7 +70,9 @@ const endGame = () => {
   clearInterval(wordTimer)
   clearInterval(timer)
   wordDiv.innerText = ""
+  wordInterval = 5000
   showPopup()
+  time = 0
 }
 
 // function to check the word matches user input
@@ -98,17 +100,49 @@ const checkWord = () => {
 }
 
 // function to decrease time
-const decreaseTime = () => {
-  remainingTime--
-  timeValue.innerText = remainingTime
-  if (remainingTime === 0) {
-    endGame()
-  }
+const increaseTime = () => {
+  time++
+  timeValue.innerText = time
+  levelUp()
 }
+
 // show results
-function showPopup() {
+const showPopup = () => {
   result.style.display = "block"
   message.innerText = `GAME OVER\nYour score is \n${score}`
+}
+
+const levelUp = () => {
+  if (time === 10) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 3500)
+    console.log(wordInterval)
+  }
+  if (time === 20) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 3000)
+    console.log(wordInterval)
+  }
+  if (time === 30) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 2500)
+    console.log(wordInterval)
+  }
+  if (time === 40) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 2000)
+    console.log(wordInterval)
+  }
+  if (time === 50) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 1500)
+    console.log(wordInterval)
+  }
+  if (time === 60) {
+    clearInterval(wordTimer)
+    wordTimer = setInterval(createWord, 1000)
+    console.log(wordInterval)
+  }
 }
 
 // Event listeners
@@ -116,7 +150,7 @@ function showPopup() {
 restartButton.addEventListener("click", () => {
   startGame()
   result.style.display = "none"
-  remainingTime = 60
+  time = 0
 })
 
 userInput.addEventListener("keydown", function (event) {

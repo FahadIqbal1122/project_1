@@ -19,6 +19,7 @@ footer {
   background-color: #f03f3c;
   font-size: 20px;
   grid-column: span 2;
+  z-index: 1;
 }
 
 #nav-section,
@@ -33,6 +34,7 @@ div {
   position: absolute;
   bottom: 0;
   left: 40%;
+  z-index: 2;
 }
 #user-input {
   width: 250px;
@@ -83,7 +85,6 @@ div {
     opacity: 1;
   }
   to {
-    top: 95vh;
-    opacity: 0;
+    top: 90vh;
   }
 }
