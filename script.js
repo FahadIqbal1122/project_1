@@ -21,6 +21,7 @@ const scoreValue = document.getElementById("score-value")
 const restartButton = document.getElementById("restart-button")
 const result = document.getElementById("button-div")
 const message = document.getElementById("message")
+const theme = document.getElementById("theme")
 
 let score = 0
 let wordTimer, timer
@@ -116,32 +117,26 @@ const levelUp = () => {
   if (time === 10) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 3500)
-    console.log(wordInterval)
   }
   if (time === 20) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 3000)
-    console.log(wordInterval)
   }
   if (time === 30) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 2500)
-    console.log(wordInterval)
   }
   if (time === 40) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 2000)
-    console.log(wordInterval)
   }
   if (time === 50) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 1500)
-    console.log(wordInterval)
   }
   if (time === 60) {
     clearInterval(wordTimer)
     wordTimer = setInterval(createWord, 1000)
-    console.log(wordInterval)
   }
 }
 
@@ -157,6 +152,10 @@ userInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     checkWord()
   }
+})
+
+theme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme")
 })
 
 // start the game
