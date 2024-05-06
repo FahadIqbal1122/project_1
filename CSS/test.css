@@ -53,13 +53,16 @@ div {
 }
 .paragraph {
   width: 800px;
-  font-size: 30px;
+  font-size: 20px;
 }
 #text-input {
   width: 800px;
-  font-size: 30px;
+  font-size: 20px;
   height: 30vh;
 }
 .correct {
   color: green;
+}
+.wrong {
+  color: red;
 }

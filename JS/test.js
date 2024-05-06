@@ -1,33 +1,48 @@
 const paragraphDiv = document.getElementById("paragraph")
 let userInput = document.getElementById("text-input")
 const theme = document.getElementById("theme")
-let characters = []
 let apiPara = ""
 
 const createParagraph = async () => {
   let response = await axios.get("http://metaphorpsum.com/paragraphs/1/5")
   apiPara = response.data
-  paragraphDiv.innerText = apiPara
-  let arr = apiPara.split("").map((value) => {
-    return `<span class='characters'${value}<span>`
-  })
-  arr.forEach((element) => {
-    paragraphDiv.innerHTML += element + " "
+
+  paragraphDiv.innerHTML = ""
+
+  let chars = apiPara.split("")
+  chars.forEach((char, index) => {
+    const span = document.createElement("span")
+    span.textContent = char
+    span.classList.add("character")
+    paragraphDiv.appendChild(span)
   })
 }
 
 userInput.addEventListener("input", () => {
-  let characters = document.querySelectorAll(".characters")
-  characters = Array.from(characters)
+  const paraChars = paragraphDiv.querySelectorAll(".character")
+  const inputChars = userInput.value.split("")
+  let correct = true
+  let typedCount = 0
 
-  let userInputCharacters = userInput.value.split("")
+  paraChars.forEach((charSpan, index) => {
+    const char = inputChars[index]
 
-  characters.forEach((char, index) => {
-    if (char.innerText == userInputCharacters[index]) {
-      console.log("correct")
-      element.classList.add("correct")
+    if (char) {
+      if (char === charSpan.textContent) {
+        charSpan.classList.add("correct")
+        charSpan.classList.remove("wrong")
+        typedCount++
+      } else {
+        charSpan.classList.remove("correct")
+        charSpan.classList.add("wrong")
+        correct = false
+      }
     }
   })
+
+  if (typedCount === paraChars.length && correct) {
+    getNewParagraph()
+  }
 })
 
 theme.addEventListener("click", () => {
@@ -35,3 +50,8 @@ theme.addEventListener("click", () => {
 })
 
 createParagraph()
+
+function getNewParagraph() {
+  createParagraph()
+  userInput.value = ""
+}
