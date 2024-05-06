@@ -148,7 +148,7 @@ restartButton.addEventListener("click", () => {
   time = 0
 })
 
-userInput.addEventListener("keydown", function (event) {
+userInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     checkWord()
   }

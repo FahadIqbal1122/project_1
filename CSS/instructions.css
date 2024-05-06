@@ -1,0 +1,34 @@
+* {
+  font-family: Orbitron, sans-serif;
+}
+body {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-gap: 5px;
+}
+nav,
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #bb86fc;
+  font-size: 20px;
+  grid-column: span 2;
+  z-index: 1;
+}
+a {
+  text-decoration: none;
+}
+
+#nav-section,
+footer {
+  display: flex;
+}
+div {
+  margin: 10px;
+}
