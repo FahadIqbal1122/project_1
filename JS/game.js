@@ -1,16 +1,4 @@
 // Variables
-const words = [
-  "apple",
-  "banana",
-  "cherry",
-  "date",
-  "elderberry",
-  "fig",
-  "grape",
-  "honeydew",
-  "iceberg",
-  "jackfruit",
-]
 const horizontal = ["20%", "40%", "60%", "80%"]
 
 const wordDiv = document.getElementById("word-div")
@@ -33,7 +21,9 @@ let wordFound = false
 
 // function to create new word
 const createWord = async () => {
-  const response = await axios.get("https://random-word-api.herokuapp.com/all")
+  const response = await axios.get(
+    "https://random-word-api.herokuapp.com/word?length=5"
+  )
   const apiWord = response.data
 
   const word = document.createElement("div")
@@ -77,6 +67,7 @@ const endGame = () => {
   wordInterval = 5000
   showPopup()
   time = 0
+  score = 0
 }
 
 // function to check the word matches user input
