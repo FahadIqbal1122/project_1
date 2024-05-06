@@ -16,15 +16,19 @@ const createParagraph = () => {
 }
 
 createParagraph()
+
 userInput.addEventListener("input", () => {
   inputChars = userInput.value
   let charArray = []
   charArray = inputChars.split("")
-  console.log(charArray)
 
   characters.forEach((char, index) => {
-    if (char === charArray[index]) {
-      console.log("YES")
+    const element = document.querySelector(
+      `#paragraph span:nth-child(${index + 1})`
+    )
+    if (char.innerText === charArray[index]) {
+      console.log("correct")
+      element.classList.add("correct")
     }
   })
 })

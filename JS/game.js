@@ -32,10 +32,13 @@ let wordFound = false
 // functions
 
 // function to create new word
-const createWord = () => {
+const createWord = async () => {
+  const response = await axios.get("https://random-word-api.herokuapp.com/all")
+  const apiWord = response.data
+
   const word = document.createElement("div")
   word.classList.add("word", "falling")
-  word.innerText = words[Math.floor(Math.random() * words.length)]
+  word.innerText = apiWord[Math.floor(Math.random() * apiWord.length)]
   word.style.fontSize = "20px"
   word.style.fontWeight = "bolder"
 

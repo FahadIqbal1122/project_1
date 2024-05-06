@@ -42,3 +42,7 @@ div {
 #input {
   display: block;
 }
+
+.correct {
+  color: green;
+}
