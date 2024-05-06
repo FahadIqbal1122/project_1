@@ -1,30 +1,37 @@
 const paragraphDiv = document.getElementById("paragraph")
 let userInput = document.getElementById("text-input")
+const theme = document.getElementById("theme")
 let characters = []
+let apiPara = ""
 
 const createParagraph = async () => {
-  const response = await axios.get("http://metaphorpsum.com/paragraphs/1/5")
-  const apiPara = response.data
-
+  let response = await axios.get("http://metaphorpsum.com/paragraphs/1/5")
+  apiPara = response.data
   paragraphDiv.innerText = apiPara
-
-  characters = apiPara.split("")
+  let arr = apiPara.split("").map((value) => {
+    return `<span class='characters'${value}<span>`
+  })
+  arr.forEach((element) => {
+    paragraphDiv.innerHTML += element + " "
+  })
 }
 
-createParagraph()
-
 userInput.addEventListener("input", () => {
-  inputChars = userInput.value
-  let charArray = []
-  charArray = inputChars.split("")
+  let characters = document.querySelectorAll(".characters")
+  characters = Array.from(characters)
+
+  let userInputCharacters = userInput.value.split("")
 
   characters.forEach((char, index) => {
-    const element = document.querySelector(
-      `#paragraph span:nth-child(${index + 1})`
-    )
-    if (char.innerText === charArray[index]) {
+    if (char.innerText == userInputCharacters[index]) {
       console.log("correct")
       element.classList.add("correct")
     }
   })
 })
+
+theme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme")
+})
+
+createParagraph()
