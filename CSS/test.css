@@ -62,7 +62,38 @@ div {
 }
 .correct {
   color: green;
+  font-weight: 900;
 }
 .wrong {
   color: red;
+  font-weight: 900;
+}
+
+#heading {
+  font-size: 40px;
+  padding: 30px;
+  font-weight: 900;
+}
+
+.button-div {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  width: 250px;
+  height: 200px;
+  padding: 15px;
+  top: 45%;
+  left: 45%;
+  text-align: center;
+}
+#restart-button {
+  position: relative;
+  display: block;
+  left: 33%;
+  padding: 10px;
+  font-size: large;
+  font-weight: bolder;
+  background-color: white;
+  border: 1px solid black;
 }
