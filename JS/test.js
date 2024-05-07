@@ -6,12 +6,18 @@ let timeValue = document.getElementById("time-value")
 let wpmValue = document.getElementById("wpm-value")
 const restartButton = document.getElementById("restart-button")
 const result = document.getElementById("button-div")
+const mistakeValue = document.getElementById("mistakes-value")
 
 let time = 0
 let wpm = 0
+let mistakes = 0
 let apiPara = ""
 
 const startTest = () => {
+  timeValue.innerText = ""
+  wpmValue.innerText = ""
+  mistakeValue.innerText = ""
+
   // create paragraph function
   const createParagraph = async () => {
     let response = await axios.get("http://metaphorpsum.com/paragraphs/1/5")
@@ -34,22 +40,23 @@ const startTest = () => {
     let correct = true
     let typedCount = 0
 
+    console.log("Going over paraChars", paraChars)
     paraChars.forEach((charSpan, index) => {
       const char = inputChars[index]
+      console.log("charSpan", charSpan)
 
-      if (char) {
-        if (char === charSpan.innerText) {
-          charSpan.classList.add("correct")
-          charSpan.classList.remove("wrong")
-          typedCount++
-        } else if (char !== charSpan.innerText) {
-          charSpan.classList.remove("correct")
-          charSpan.classList.add("wrong")
-          correct = false
-        } else if (char === null) {
-          charSpan.classList.remove("correct")
-          charSpan.classList.remove("wrong")
-        }
+      if (char && char === charSpan.innerText) {
+        charSpan.classList.add("correct")
+        charSpan.classList.remove("wrong")
+        typedCount++
+      } else if (char && char !== charSpan.innerText) {
+        charSpan.classList.remove("correct")
+        charSpan.classList.add("wrong")
+        correct = false
+        mistakes++
+      } else {
+        charSpan.classList.remove("correct")
+        charSpan.classList.remove("wrong")
       }
     })
 
@@ -67,26 +74,27 @@ const startTest = () => {
     createParagraph()
     userInput.value = ""
   }
-}
-
-// remainig time function
-const remainingTime = () => {
-  time++
-  timeValue.innerText = time
-  if (time === 60) {
-    clearInterval(testTime)
-    wpmValue.innerText = wpm
-    endGame()
+  // remainig time function
+  const remainingTime = () => {
+    time++
+    timeValue.innerText = time
+    if (time === 60) {
+      clearInterval(testTime)
+      wpmValue.innerText = wpm
+      mistakeValue.innerText = mistakes
+      endGame()
+    }
   }
+  let testTime = setInterval(remainingTime, 1000)
 }
-let testTime = setInterval(remainingTime, 1000)
 
 // function to end the test
 const endGame = () => {
   showPopup()
-  userInput.innerText = ""
+  userInput.value = ""
   time = 0
   score = 0
+  mistakes = 0
 }
 
 // show results
@@ -101,4 +109,7 @@ startTest()
 theme.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme")
 })
-restartButton.addEventListener("click", () => {})
+restartButton.addEventListener("click", () => {
+  result.style.display = "none"
+  startTest()
+})

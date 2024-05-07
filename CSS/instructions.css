@@ -16,13 +16,17 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   height: 50px;
-  background-color: #bb86fc;
+  background-color: #6200ee;
   font-size: 20px;
   grid-column: span 2;
   z-index: 1;
 }
 a {
   text-decoration: none;
+  color: white;
+}
+nav {
+  color: white;
 }
 
 #nav-section,
