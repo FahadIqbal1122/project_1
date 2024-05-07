@@ -110,6 +110,7 @@ theme.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme")
   restartButton.classList.toggle("dark-theme")
   userInput.classList.toggle("dark-theme")
+  result.classList.toggle("dark-theme")
 })
 restartButton.addEventListener("click", () => {
   result.style.display = "none"
