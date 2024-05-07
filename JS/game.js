@@ -150,6 +150,10 @@ userInput.addEventListener("keydown", (event) => {
 
 theme.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme")
+  message.classList.toggle("dark-theme")
+  buttonDiv.classList.toggle("dark-theme")
+  userInput.classList.toggle("dark-theme")
+  restartButton.classList.toggle("dark-theme")
 })
 
 // start the game

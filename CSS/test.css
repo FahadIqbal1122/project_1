@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr auto;
   grid-gap: 5px;
 }
 nav,
@@ -20,6 +20,9 @@ footer {
   grid-column: span 2;
   z-index: 1;
 }
+footer {
+  grid-row-end: span 2;
+}
 a {
   text-decoration: none;
   color: white;
@@ -28,8 +31,7 @@ nav {
   color: white;
 }
 
-#nav-section,
-footer {
+#nav-section {
   display: flex;
 }
 div {
@@ -81,19 +83,16 @@ div {
 .button-div {
   display: none;
   position: absolute;
+  align-content: center;
   background-color: white;
-  border: 1px solid black;
-  width: 300px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   padding: 15px;
-  top: 45%;
-  left: 45%;
   text-align: center;
 }
 #restart-button {
-  position: relative;
-  display: block;
-  left: 33%;
+  justify-content: center;
+  align-content: center;
   padding: 10px;
   font-size: large;
   font-weight: bolder;

@@ -93,7 +93,7 @@ const endGame = () => {
   showPopup()
   userInput.value = ""
   time = 0
-  score = 0
+  wpm = 0
   mistakes = 0
 }
 
@@ -108,6 +108,8 @@ startTest()
 // theme
 theme.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme")
+  restartButton.classList.toggle("dark-theme")
+  userInput.classList.toggle("dark-theme")
 })
 restartButton.addEventListener("click", () => {
   result.style.display = "none"
