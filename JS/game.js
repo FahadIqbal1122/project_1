@@ -12,6 +12,8 @@ const message = document.getElementById("message")
 const theme = document.getElementById("theme")
 const Highest = document.getElementById("highest")
 let highestScore = localStorage.getItem("highestScore")
+const startDiv = document.getElementById("start-div")
+const startButton = document.getElementById("start-game")
 
 let score = 0
 let wordTimer, timer
@@ -143,6 +145,7 @@ const levelUp = () => {
 
 restartButton.addEventListener("click", () => {
   startGame()
+  userInput.focus()
   result.style.display = "none"
   time = 0
 })
@@ -153,13 +156,21 @@ userInput.addEventListener("keydown", (event) => {
   }
 })
 
+// start game button
+startButton.addEventListener("click", () => {
+  startDiv.style.display = "none"
+  userInput.focus()
+  // start the game
+  startGame()
+})
+
 theme.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme")
   message.classList.toggle("dark-theme")
   buttonDiv.classList.toggle("dark-theme")
   userInput.classList.toggle("dark-theme")
   restartButton.classList.toggle("dark-theme")
+  startDiv.classList.toggle("dark-theme")
+  startButton.classList.toggle("dark-theme")
+  restartButton.classList.toggle("dark-theme")
 })
-
-// start the game
-startGame()

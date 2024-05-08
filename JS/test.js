@@ -110,17 +110,20 @@ theme.addEventListener("click", () => {
   restartButton.classList.toggle("dark-theme")
   userInput.classList.toggle("dark-theme")
   result.classList.toggle("dark-theme")
+  startButton.classList.toggle("dark-theme")
 })
 
 // button to restart test
 restartButton.addEventListener("click", () => {
   result.style.display = "none"
+  userInput.focus()
   startTest()
 })
 
 // button to start the test
 startButton.addEventListener("click", () => {
   startTest()
+  userInput.focus()
   startButton.disabled = "true"
   startButton.style.display = "none"
 })

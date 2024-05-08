@@ -39,12 +39,6 @@ div {
   margin: 10px;
 }
 
-.dark-theme {
-  background-color: #121212;
-  color: #03dac5;
-  border-color: #03dac5;
-}
-
 #main {
   position: absolute;
   display: flex;
@@ -99,7 +93,6 @@ div {
   padding: 10px;
   font-size: large;
   font-weight: bolder;
-  background-color: white;
   border: 1px solid black;
 }
 
@@ -108,4 +101,10 @@ div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #03dac5;
+  border-color: #03dac5;
 }
