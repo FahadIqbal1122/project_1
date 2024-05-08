@@ -77,8 +77,9 @@ div {
   padding: 10px;
   font-size: large;
   font-weight: bolder;
-  background-color: white;
-  border: 1px solid black;
+  background-color: none;
+  border: 1px solid;
+  border-color: black;
 }
 
 .dark-theme {
