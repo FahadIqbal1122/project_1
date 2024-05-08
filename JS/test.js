@@ -66,6 +66,9 @@ const startTest = () => {
     }
     splittedWords = userInput.value.split(" ")
     wpm = Math.floor(splittedWords.length / (time / 60))
+
+    mistakeValue.innerText = mistakes
+    wpmValue.innerText = wpm
   })
 
   createParagraph()
