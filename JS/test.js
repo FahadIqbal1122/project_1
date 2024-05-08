@@ -7,6 +7,7 @@ let wpmValue = document.getElementById("wpm-value")
 const restartButton = document.getElementById("restart-button")
 const result = document.getElementById("button-div")
 const mistakeValue = document.getElementById("mistakes-value")
+const startButton = document.getElementById("start-button")
 
 let time = 0
 let wpm = 0
@@ -100,10 +101,8 @@ const endGame = () => {
 // show results
 const showPopup = () => {
   result.style.display = "block"
-  message.innerText = `Test Complete\nYour WPM is \n${wpm}`
+  message.innerText = `Test Complete\nYour WPM is \n${wpm}\nYour Mistakes:\n${mistakes}`
 }
-
-startTest()
 
 // theme
 theme.addEventListener("click", () => {
@@ -112,7 +111,15 @@ theme.addEventListener("click", () => {
   userInput.classList.toggle("dark-theme")
   result.classList.toggle("dark-theme")
 })
+
+// button to restart test
 restartButton.addEventListener("click", () => {
   result.style.display = "none"
   startTest()
+})
+
+// button to start the test
+startButton.addEventListener("click", () => {
+  startTest()
+  startButton.disabled = "true"
 })

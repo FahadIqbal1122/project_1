@@ -97,3 +97,7 @@ div {
     top: 90vh;
   }
 }
+
+.word {
+  text-shadow: 0 0 10px white;
+}
