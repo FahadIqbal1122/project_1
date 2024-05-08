@@ -9,6 +9,7 @@ body {
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 50px 1fr 50px;
   grid-gap: 5px;
+  overflow: hidden;
 }
 nav,
 footer {
@@ -32,14 +33,17 @@ nav {
 footer {
   display: flex;
 }
+footer {
+  flex-direction: row;
+  justify-content: center;
+}
 div {
   margin: 10px;
 }
 
 #input-div {
   position: absolute;
-  bottom: 0;
-  left: 45%;
+
   z-index: 2;
 }
 #user-input {

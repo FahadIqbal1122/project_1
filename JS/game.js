@@ -10,6 +10,8 @@ const restartButton = document.getElementById("restart-button")
 const result = document.getElementById("button-div")
 const message = document.getElementById("message")
 const theme = document.getElementById("theme")
+const Highest = document.getElementById("highest")
+let highestScore = localStorage.getItem("highestScore")
 
 let score = 0
 let wordTimer, timer
@@ -105,6 +107,11 @@ const increaseTime = () => {
 const showPopup = () => {
   result.style.display = "block"
   message.innerText = `GAME OVER\nYour score is \n${score}`
+  if (score > highestScore) {
+    highestScore = score
+    localStorage.setItem("highestScore", highestScore)
+  }
+  Highest.innerText = `${highestScore}`
 }
 
 const levelUp = () => {
