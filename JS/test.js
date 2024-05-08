@@ -122,4 +122,5 @@ restartButton.addEventListener("click", () => {
 startButton.addEventListener("click", () => {
   startTest()
   startButton.disabled = "true"
+  startButton.style.display = "none"
 })

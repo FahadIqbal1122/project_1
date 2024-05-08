@@ -76,9 +76,7 @@ const endGame = () => {
 const checkWord = () => {
   const enteredWord = userInput.value.toLowerCase()
   const wordElements = document.querySelectorAll(".word")
-
   let wordElement
-
   for (let i = 0; i < wordElements.length; i++) {
     wordElement = wordElements[i]
 
@@ -137,7 +135,7 @@ const levelUp = () => {
   }
   if (time === 60) {
     clearInterval(wordTimer)
-    wordTimer = setInterval(createWord, 1000)
+    wordTimer = setInterval(createWord, 1200)
   }
 }
 
