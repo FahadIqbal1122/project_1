@@ -101,7 +101,7 @@ const endGame = () => {
 // show results
 const showPopup = () => {
   result.style.display = "block"
-  message.innerText = `Test Complete\nYour WPM is \n${wpm}\nYour Mistakes:\n${mistakes}`
+  message.innerText = `Test Complete\nYour CPM is \n${wpm}\nYour Mistakes:\n${mistakes}`
 }
 
 // theme
