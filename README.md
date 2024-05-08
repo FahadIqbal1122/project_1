@@ -1,6 +1,6 @@
 # Typing Speed Test Game
 
-## Date: 5/1/2024
+## Date: 5/8/2024
 
 ### By: Fahad Iqbal
 
@@ -28,7 +28,7 @@
 
 ##### Your mistakes and speed will be calculated. You can also pause the game any time you want
 
-<!-- ##### The project was deployed and can be viewed [here](URL). -->
+##### The project was deployed and can be viewed [here](https://typerush.surge.sh/).
 
 ---
 
@@ -36,13 +36,14 @@
 
 ##### Game main page
 
-![wireframe](https://i.imghippo.com/files/eMvBn1714561072.png)
+![Typing Game](Extra/typeRush.png))
+![Speed Test](Extra/speedTest.png))
 
 ---
 
 ### **_Future Updates_**
 
-- [ ] Add Dark theme
+- [x] Add Dark theme
 - [ ] Choose between different genres of paragraphs
 - [ ] Practice and learn Typing
 
@@ -50,6 +51,8 @@
 
 ### **_Credits_**
 
-##### Wireframe: [Canva](http://www.canva.com)
+##### animations: [MDN](https://developer.mozilla.org/en-US/)
+
+##### events: [MDN](https://stackoverflow.com/)
 
 ---
